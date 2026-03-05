@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Legend Was Born</title>
+    <style>
+        /* ========== VARIABLES ========== */
+        :root {
+            --bg-color: #050505;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --neon-cyan: #00f3ff;
+            --neon-purple: #bc13fe;
+            --text-color: #ffffff;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* ========== GLASS NAVBAR ========== */
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1000px;
+            padding: 15px 30px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px var(--neon-purple);
+        }
+
+        .nav-links span {
+            color: rgba(255,255,255,0.8);
+            font-weight: 500;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        /* ========== HERO & PARTICLES ========== */
+        header {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at 50% 50%, #1a0b2e 0%, #050505 80%);
+            overflow: hidden;
+        }
+
+        #particles {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 7vw, 6rem);
+            margin: 0 0 15px 0;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
+            letter-spacing: 4px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        p.subtitle {
+            font-size: 1.25rem;
+            color: #ccc;
+            max-width: 700px;
+            line-height: 1.7;
+            margin: 0 auto 40px auto;
+            font-weight: 300;
+        }
+
+        /* ========== GALLERY / CARDS ========== */
+        .container {
+            max-width: 1100px;
+            margin: 80px auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--text-color);
+            text-shadow: 0 0 15px var(--neon-purple);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--glass-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 16px;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+        }
+
+        .card:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .card h3 {
+            color: var(--neon-cyan);
+            margin-top: 0;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .card p {
+            font-size: 1rem;
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        /* ========== BUTTONS ========== */
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background: var(--neon-cyan);
+            color: #000;
+            box-shadow: 0 0 25px var(--neon-cyan);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">fjfjfjfjfj</div>
+        <div class="nav-links">
+            <span>هعهعهعهعهع</span>
+        </div>
+    </nav>
+
+    <header>
+        <canvas id="particles"></canvas>
+        
+        <div class="hero-content">
+            <h1>Happy Birthday Zahra</h1>
+            <p class="subtitle">
+                ماكو شي زايد بس كل عام وانتي بخير 
+            </p>
+            <a href="#archives" class="btn">↓نزلي جوه </a>
+        </div>
+    </header>
+
+    <div class="container" id="archives">
+        <h2 class="section-title">The Hall of Fame</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="hbd1.png" alt="Birthday Memory 1" onerror="this.src='https://via.placeholder.com/400x300/1a0b2e/00f3ff?text=hbd1.png'">
+                <h3>هاي انتي</h3>
+                <p>هاي انتي</p>
+            </div>
+            
+            <div class="card">
+                <img src="hbd2.png" alt="Birthday Memory 2" onerror="this.src='https://via.placeholder.com/400x300/1a0b2e/bc13fe?text=hbd2.png'">
+                <h3>هاي انتي بس على هبلة</h3>
+                <p>هبلة</p>
+            </div>
+
+            <div class="card">
+                <img src="hbd3.png" alt="Birthday Memory 3" onerror="this.src='https://via.placeholder.com/400x300/1a0b2e/00f3ff?text=hbd3.png'">
+                <h3>هذاني</h3>
+                <p>هذاني</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function initParticles(canvasId) {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+            let animFrame;
+
+            function resize() {
+                const parent = canvas.parentElement;
+                canvas.width = parent.offsetWidth;
+                canvas.height = parent.offsetHeight;
+            }
+            resize();
+            window.addEventListener('resize', resize);
+
+            class Particle {
+                constructor() {
+                    this.reset();
+                }
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2 + 0.5;
+                    this.speedX = (Math.random() - 0.5) * 0.5;
+                    this.speedY = (Math.random() - 0.5) * 0.5;
+                    this.opacity = Math.random() * 0.5 + 0.1;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+                        this.reset();
+                    }
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(0, 243, 255, ${this.opacity})`;
+                    ctx.fill();
+                }
+            }
+
+            for (let i = 0; i < 70; i++) {
+                particles.push(new Particle());
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < 130) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(188, 19, 254, ${0.2 * (1 - dist / 130)})`;
+                            ctx.lineWidth = 0.8;
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                animFrame = requestAnimationFrame(animate);
+            }
+            animate();
+        }
+        
+        initParticles('particles');
+    </script>
+</body>
+</html>
